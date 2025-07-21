@@ -1,0 +1,231 @@
+:root {
+      --primary-color: #1e1e1e;
+      --accent-color: #0077cc;
+      --background-color: #f4f4f4;
+      --card-background: #ffffff;
+      --text-color: #333;
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      background: var(--background-color);
+      color: var(--text-color);
+      line-height: 1.6;
+    }
+
+    header {
+      background: var(--primary-color);
+      color: #fff;
+      padding: 2rem 1rem;
+      text-align: center;
+    }
+
+    header h1 {
+      font-size: 2.5rem;
+      margin-bottom: 0.5rem;
+    }
+
+    section {
+      padding: 2rem;
+      max-width: 960px;
+      margin: auto;
+    }
+
+    h2 {
+      font-size: 2rem;
+      margin-bottom: 1rem;
+      color: var(--primary-color);
+      border-bottom: 2px solid var(--accent-color);
+      padding-bottom: 0.5rem;
+    }
+
+    .project {
+      background: var(--card-background);
+      padding: 1.5rem;
+      margin-bottom: 1.5rem;
+      border-radius: 10px;
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.05);
+      transition: transform 0.2s ease, box-shadow 0.2s ease;
+    }
+
+    .project:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 8px 16px rgba(0, 0, 0, 0.1);
+    }
+
+    footer {
+      background: var(--primary-color);
+      color: #fff;
+      text-align: center;
+      padding: 1rem;
+      margin-top: 2rem;
+      font-size: 0.9rem;
+    }
+
+    a {
+      color: var(--accent-color);
+      text-decoration: none;
+    }
+
+    a:hover {
+      text-decoration: underline;
+    }
+    /* Smooth scroll for internal links */
+html {
+  scroll-behavior: smooth;
+}
+
+/* Add spacing between sections */
+section {
+  margin-bottom: 3rem;
+}
+
+/* Responsive text sizes */
+@media (max-width: 768px) {
+  header h1 {
+    font-size: 2rem;
+  }
+
+  h2 {
+    font-size: 1.5rem;
+  }
+
+  .project {
+    padding: 1rem;
+  }
+}
+
+/* Button style for future use (e.g. contact form or call to action) */
+.button {
+  display: inline-block;
+  background-color: var(--accent-color);
+  color: #fff;
+  padding: 0.75rem 1.25rem;
+  border-radius: 5px;
+  text-align: center;
+  transition: background-color 0.3s ease;
+  font-weight: bold;
+}
+
+.button:hover {
+  background-color: #005fa3;
+  cursor: pointer;
+}
+
+/* Add visual dividers between projects */
+.project:not(:last-child) {
+  border-bottom: 1px solid #eee;
+}
+
+/* Subtle fade-in animation for sections */
+@keyframes fadeInUp {
+  0% {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+section {
+  animation: fadeInUp 0.6s ease-out;
+}
+.dark-mode {
+  --primary-color: #f4f4f4;
+  --accent-color: #1e90ff;
+  --background-color: #1a1a1a;
+  --card-background: #2a2a2a;
+  --text-color: #f4f4f4;
+}
+
+.dark-mode body {
+  background: var(--background-color);
+  color: var(--text-color);
+}
+
+.dark-mode header,
+.dark-mode footer {
+  background: #000;
+  color: #fff;
+}
+.fade-in {
+  opacity: 0;
+  transform: translateY(30px);
+  transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+}
+
+.fade-in.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+.project:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 8px 24px rgba(0, 119, 204, 0.2);
+  border-left: 4px solid var(--accent-color);
+}
+#backToTop {
+  position: fixed;
+  bottom: 30px;
+  right: 30px;
+  font-size: 20px;
+  background: var(--accent-color);
+  color: white;
+  border: none;
+  border-radius: 50%;
+  width: 45px;
+  height: 45px;
+  cursor: pointer;
+  display: none;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.3);
+  z-index: 999;
+}
+
+#backToTop:hover {
+  background: #005fa3;
+}
+#typing-text::after {
+  content: '|';
+  animation: blink 1s infinite;
+  margin-left: 2px;
+}
+
+@keyframes blink {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0; }
+}
+a.whatsapp-button {
+  display: inline-block;
+  padding: 10px 16px;
+  background-color: #25D366;
+  color: white;
+  text-decoration: none;
+  border-radius: 6px;
+  font-weight: bold;
+  margin-top: 10px;
+}
+
+a.whatsapp-button:hover {
+  background-color: #1ebc59;
+}
+a.whatsapp-button {
+  display: inline-block;
+  padding: 10px 16px;
+  background-color: #25D366;
+  color: white;
+  text-decoration: none;
+  border-radius: 6px;
+  font-weight: bold;
+  margin-top: 10px;
+}
+
+a.whatsapp-button:hover {
+  background-color: #1ebc59;
+}

@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Dumizo | Portfolio</title>
+  <link rel="stylesheet" href="style.css">
+  <button id="toggle-dark" class="button" style="margin-top: 1rem;">Toggle Dark Mode</button>
+</head>
+<body>
+  <header>
+    <h1>Dumizo</h1>
+    <p id="typing-text"></p>
+  </header>
+    <section id="about" class="fade-in">
+    <h2>About Me</h2>
+    <p>Hello! I'm Dumizo, a professional Web Developer. I help students, creators and small businesses build fast, clean websites, resumes, and digital portfolios.</p>
+  </section>
+    <section id="projects" class="fade-in">
+
+    <h2>Sample Projects</h2>
+    <div class="project">
+      <h3>Resume Design in Canva</h3>
+      <p>Created modern, professional resumes using Canva. Helped students secure internships and jobs.</p>
+    </div>
+    <div class="project">
+      <h3>Student Portfolio Website</h3>
+      <p>A 1-page Notion-based student portfolio with education, projects, and contact info.</p>
+    </div>
+    <div class="project">
+      <h3>Small Business Site</h3>
+      <p>Built a 3-page website for a local bakery using HTML and CSS (Home, Menu, Contact).</p>
+    </div>
+  </section>
+    <section id="contact" class="fade-in">
+    <h2>Contact</h2>
+    <p>Email: dumizodantez5@gmail.com</p>
+    <p>Instagram: <a href="https://instagram.com/yourhandle" target="_blank">@dumizo254</a></p>
+    <p>
+  <a href="https://wa.me/254116720485" class="whatsapp-button" target="_blank">
+    <img src="https://upload.wikimedia.org/wikipedia/commons/6/6b/WhatsApp.svg" alt="WhatsApp" style="width:20px; height:20px; vertical-align:middle; margin-right:8px;">
+    Message me on WhatsApp
+  </a>
+</p>
+
+
+  </section>
+
+  <footer>
+    <p>&copy; 2025 Dumizo. All rights reserved.</p>
+  </footer>
+  <script>
+  const toggleBtn = document.getElementById("toggle-dark");
+  toggleBtn.addEventListener("click", () => {
+    document.body.classList.toggle("dark-mode");
+    localStorage.setItem("darkMode", document.body.classList.contains("dark-mode"));
+  });
+
+  // Load dark mode from previous session
+  window.addEventListener("DOMContentLoaded", () => {
+    if (localStorage.getItem("darkMode") === "true") {
+      document.body.classList.add("dark-mode");
+    }
+  });
+</script>
+<script>
+  const faders = document.querySelectorAll('.fade-in');
+
+  const appearOptions = {
+    threshold: 0.2,
+    rootMargin: "0px 0px -20px 0px"
+  };
+
+  const appearOnScroll = new IntersectionObserver((entries, observer) => {
+    entries.forEach(entry => {
+      if (!entry.isIntersecting) return;
+      entry.target.classList.add('visible');
+      observer.unobserve(entry.target);
+    });
+  }, appearOptions);
+
+  faders.forEach(fader => {
+    appearOnScroll.observe(fader);
+  });
+</script>
+<button id="backToTop" title="Go to top">&#8679;</button>
+<script>
+  const backToTop = document.getElementById("backToTop");
+  window.addEventListener("scroll", () => {
+    if (window.scrollY > 300) {
+      backToTop.style.display = "block";
+    } else {
+      backToTop.style.display = "none";
+    }
+  });
+
+  backToTop.addEventListener("click", () => {
+    window.scrollTo({ top: 0, behavior: "smooth" });
+  });
+</script>
+<script>
+  const text = "Web Developer | Resume Designer | Student Site Creator";
+  const typingElement = document.getElementById("typing-text");
+  let index = 0;
+
+  function type() {
+    if (index < text.length) {
+      typingElement.textContent += text.charAt(index);
+      index++;
+      setTimeout(type, 60);
+    }
+  }
+
+  window.addEventListener("DOMContentLoaded", type);
+</script>
+
+</body>
+</html>
