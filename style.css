@@ -229,3 +229,12 @@ a.whatsapp-button {
 a.whatsapp-button:hover {
   background-color: #1ebc59;
 }
+#typing-text::after {
+  content: "|";
+  animation: blink 1s step-end infinite;
+}
+
+@keyframes blink {
+  50% { opacity: 0; }
+}
+

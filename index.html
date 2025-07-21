@@ -99,20 +99,48 @@
   });
 </script>
 <script>
-  const text = "Web Developer | Resume Designer | Student Site Creator";
-  const typingElement = document.getElementById("typing-text");
-  let index = 0;
+  const typingText = document.getElementById("typing-text");
+  const titles = ["Web Developer", "Resume Designer", "Student Site Creator"];
+  let wordIndex = 0;
+  let charIndex = 0;
+  let currentText = "";
+  let isDeleting = false;
 
   function type() {
-    if (index < text.length) {
-      typingElement.textContent += text.charAt(index);
-      index++;
-      setTimeout(type, 60);
+    const fullText = titles.slice(0, wordIndex + 1).join(" | ");
+    if (!isDeleting) {
+      currentText += fullText.charAt(charIndex);
+      typingText.textContent = currentText;
+      charIndex++;
+      if (charIndex === fullText.length) {
+        wordIndex++;
+        if (wordIndex === titles.length) {
+          // All words typed – pause, then reset
+          setTimeout(() => {
+            isDeleting = true;
+            charIndex = fullText.length;
+            type();
+          }, 2000);
+          return;
+        }
+        setTimeout(type, 1000);
+        return;
+      }
+    } else {
+      currentText = currentText.slice(0, -1);
+      typingText.textContent = currentText;
+      charIndex--;
+      if (charIndex === 0) {
+        wordIndex = 0;
+        isDeleting = false;
+      }
     }
+    setTimeout(type, isDeleting ? 30 : 70);
   }
 
-  window.addEventListener("DOMContentLoaded", type);
+  document.addEventListener("DOMContentLoaded", type);
 </script>
+
 
 </body>
 </html>
